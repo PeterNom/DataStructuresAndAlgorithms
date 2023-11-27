@@ -7,11 +7,11 @@ using System.Xml.Serialization;
 
 namespace DataStructuresAndAlgorithms
 {
-    internal class SortingArlgorims
+    internal class SortingAlgorithms
     {
         private int[] my_array;
-        
-        public SortingArlgorims(int[] arrayToBeSorted) 
+
+        public SortingAlgorithms(int[] arrayToBeSorted) 
         {
             my_array = arrayToBeSorted;
         }
@@ -145,5 +145,16 @@ namespace DataStructuresAndAlgorithms
         {
             return my_array;
         }
+    }
+
+    internal class MaximumAlgorithms
+    {
+        private int[] my_array;
+
+        public MaximumAlgorithms(int[] array)
+        {
+            this.my_array = array;
+        }
+        
     }
 }
