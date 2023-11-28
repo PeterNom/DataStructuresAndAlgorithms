@@ -34,7 +34,14 @@ Console.WriteLine(myMax.FindMaximumSubarray(0, myMax.GetArray().Length-1));
 //BFS
 graph.GraphInitialize(graph);
 
-for(int i = 0;i < 10; i++)
+Console.WriteLine("DSF");
+graph.DFS(2);
+Console.WriteLine();
+Console.WriteLine("BSF");
+graph.BFS(2);
+Console.WriteLine();
+
+for (int i = 0;i < 10; i++)
 {
     myHeap.push(i);
 }
