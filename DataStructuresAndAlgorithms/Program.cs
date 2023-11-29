@@ -1,4 +1,4 @@
-﻿using DataStructuresAndAlgorithms;
+﻿using DataStructuresAndAlgorithms.Algorithms;
 using DataStructuresAndAlgorithms.DataStructures;
 
 Console.WriteLine("Hello, World!");
@@ -9,6 +9,7 @@ SortingAlgorithms mySort = new SortingAlgorithms(ints);
 MinMaxAlgorithms myMax = new MinMaxAlgorithms(subMax);
 Graph graph = new Graph(4);
 Heap myHeap = new Heap();
+BinaryTree binaryTree = new BinaryTree();
 
 // Insertion Sort
 int[] ints1 = mySort.InsertionSortV2();
@@ -49,3 +50,28 @@ for (int i = 0; i < 10; i++)
 {
     Console.WriteLine(myHeap.pop());
 }
+
+Console.WriteLine("Tree");
+
+//Tree
+binaryTree.AddNode(1);
+binaryTree.AddNode(2);
+binaryTree.AddNode(7);
+binaryTree.AddNode(3);
+binaryTree.AddNode(10);
+binaryTree.AddNode(5);
+binaryTree.AddNode(8);
+
+binaryTree.Remove(7);
+
+Console.WriteLine("PreOrder Traversal:");
+binaryTree.TraversePreOrder(binaryTree.Root);
+Console.WriteLine();
+
+Console.WriteLine("InOrder Traversal:");
+binaryTree.TraverseInOrder(binaryTree.Root);
+Console.WriteLine();
+
+Console.WriteLine("PostOrder Traversal:");
+binaryTree.TraversePostOrder(binaryTree.Root);
+Console.WriteLine();
