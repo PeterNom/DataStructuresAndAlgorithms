@@ -18,7 +18,7 @@ namespace DataStructuresAndAlgorithms.Algorithms
 
         public int[] GetArray() { return my_array; }
 
-        //My implementation
+        //InsertionSort
         public int[] InsertionSortV1()
         {
             for (int x = 1; x < my_array.Length; x++)
@@ -35,7 +35,7 @@ namespace DataStructuresAndAlgorithms.Algorithms
             return my_array;
         }
 
-        //Book implementation
+        //InsertionSort Book implementation
         public int[] InsertionSortV2()
         {
             for (int x = 1; x < my_array.Length; x++)
@@ -54,6 +54,7 @@ namespace DataStructuresAndAlgorithms.Algorithms
             return my_array;
         }
 
+        //BubbleSort
         public int[] BubbleSort()
         {
             bool finishFlag = false;
@@ -77,6 +78,7 @@ namespace DataStructuresAndAlgorithms.Algorithms
             return my_array;
         }
 
+        //Mergesort
         public void Mergesort(int start, int end)
         {
             if (start >= end)
@@ -89,6 +91,7 @@ namespace DataStructuresAndAlgorithms.Algorithms
 
             Merge(start, mid, end);
         }
+        
         private void Merge(int start, int mid, int end)
         {
             int[] left = new int[mid - start + 1];
@@ -136,14 +139,94 @@ namespace DataStructuresAndAlgorithms.Algorithms
             }
         }
 
+        //Heapsort
         public int[] Heapsort()
         {
+            int size = my_array.Length;
+
+            for (int i = size / 2 - 1; i >= 0; i--)
+                heapify(size, i);
+
+            for (int i = size - 1; i > 0; i--)
+            {
+                // Move current root to end
+                int temp = my_array[0];
+                my_array[0] = my_array[i];
+                my_array[i] = temp;
+
+                // call max heapify on the reduced heap
+                heapify(i, 0);
+            }
             return my_array;
         }
 
-        public int[] Quicksort()
+        private void heapify(int size, int root)
         {
+            int largest = root;
+            int leftChild  = 2 * root + 1;
+            int rightChild = 2 * root + 2;
+
+            if(leftChild < size && my_array[leftChild] > my_array[largest])
+            {
+                largest = leftChild;    
+            }
+
+            if (rightChild < size && my_array[rightChild] > my_array[largest])
+            {
+                largest = rightChild;
+            }
+
+            if (largest != root)
+            {
+                int swap = my_array[root];
+                my_array[root] = my_array[largest];
+                my_array[largest] = swap;
+
+                // Recursively heapify the affected sub-tree
+                heapify(size, largest);
+            }
+        }
+
+        //Quicksort
+        public int[] Quicksort(int start, int end)
+        {
+            if(start < end)
+            {
+
+                int pivot = partition(start, end);
+
+                Quicksort(start, pivot - 1);
+                Quicksort(pivot + 1, end);
+            }
+
             return my_array;
+        }
+
+        private int partition(int start, int end)
+        {
+            int pivot = my_array[end];
+
+            int smallerEleIndex = start - 1;
+
+            for(int y = start; y < end; y++) 
+            {
+                if (my_array[y] < pivot)
+                {
+                    smallerEleIndex++;
+
+                    swap(smallerEleIndex, y);
+                }
+            }
+            swap(smallerEleIndex+1, end);
+
+            return (smallerEleIndex + 1);
+        }
+
+        private void swap(int i, int j)
+        {
+            int temp = my_array[i];
+            my_array[i] = my_array[j];
+            my_array[j] = temp;
         }
     }
 }

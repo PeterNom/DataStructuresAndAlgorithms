@@ -29,6 +29,17 @@ mySort.Mergesort(0, mySort.GetArray().Length-1);
 foreach (int i in mySort.GetArray())
     Console.WriteLine(i);
 
+//QuickSort
+mySort.Quicksort(0, mySort.GetArray().Length - 1);
+Console.WriteLine("Quicksort");
+foreach (int i in mySort.GetArray())
+    Console.WriteLine(i);
+
+mySort.Heapsort();
+Console.WriteLine("Heapsort");
+foreach (int i in mySort.GetArray())
+    Console.WriteLine(i);
+
 // Maximum Sub Array
 Console.WriteLine(myMax.FindMaximumSubarray(0, myMax.GetArray().Length-1));
 
